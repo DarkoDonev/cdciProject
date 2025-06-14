@@ -1,0 +1,129 @@
+:host {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: #f4f6fb;
+  font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+.employee-card {
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 4px 32px 0 rgba(60,72,88,0.10);
+  padding: 40px 32px 32px 32px;
+  min-width: 340px;
+  max-width: 600px;
+  width: 100%;
+  margin: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.employee-form {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 28px;
+  flex-wrap: wrap;
+}
+
+.employee-form input,
+.employee-form select {
+  flex: 1 1 120px;
+  padding: 12px 14px;
+  border: 1px solid #e0e6ed;
+  border-radius: 8px;
+  font-size: 1rem;
+  background: #f8fafc;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  outline: none;
+}
+
+.employee-form input:focus,
+.employee-form select:focus {
+  border-color: #1976d2;
+  box-shadow: 0 0 0 2px #1976d222;
+  background: #fff;
+}
+
+.employee-form button {
+  background: #1976d2;
+  color: #fff;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(25, 118, 210, 0.08);
+  transition: background 0.2s, box-shadow 0.2s;
+}
+
+.employee-form button:hover {
+  background: #1565c0;
+  box-shadow: 0 4px 16px rgba(25, 118, 210, 0.12);
+}
+
+.employee-table-container {
+  width: 100%;
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 2px 12px 0 rgba(60,72,88,0.06);
+}
+
+th, td {
+  padding: 14px 18px;
+  text-align: left;
+}
+
+th {
+  background: #f4f6fb;
+  color: #1976d2;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  font-size: 1.04rem;
+}
+
+tr:not(:last-child) {
+  border-bottom: 1px solid #e0e6ed;
+}
+
+td button {
+  background: #f44336;
+  color: #fff;
+  border: none;
+  padding: 8px 18px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.98rem;
+  font-weight: 500;
+  transition: background 0.2s;
+}
+
+td button:hover {
+  background: #d32f2f;
+}
+
+@media (max-width: 600px) {
+  .employee-card {
+    padding: 18px 4vw;
+    min-width: unset;
+    max-width: 98vw;
+  }
+  .employee-form {
+    flex-direction: column;
+    gap: 10px;
+  }
+  th, td {
+    padding: 10px 8px;
+    font-size: 0.98rem;
+  }
+}

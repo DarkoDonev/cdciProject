@@ -1,0 +1,35 @@
+<div class="employee-card">
+  <form class="employee-form" (ngSubmit)="addEmployee()" autocomplete="off">
+    <input [(ngModel)]="name" name="name" placeholder="Name" required />
+    <input [(ngModel)]="surname" name="surname" placeholder="Surname" required />
+    <input [(ngModel)]="salary" name="salary" type="number" placeholder="Salary" min="0" required />
+    <select [(ngModel)]="position" name="position" required>
+      <option *ngFor="let pos of positions" [value]="pos">{{ pos }}</option>
+    </select>
+    <button type="submit">Add Employee</button>
+  </form>
+
+  <div class="employee-table-container">
+    <table *ngIf="employees.length > 0">
+      <tr>
+        <th>Name</th>
+        <th>Surname</th>
+        <th>Position</th>
+        <th>Salary</th>
+        <th>Action</th>
+      </tr>
+      <tr *ngFor="let e of employees">
+        <td>{{ e.name }}</td>
+        <td>{{ e.surname }}</td>
+        <td>{{ e.position }}</td>
+        <td>{{ e.salary | number:'1.0-0' }}</td>
+        <td>
+          <button (click)="deleteEmployee(e._id!)">Delete</button>
+        </td>
+      </tr>
+    </table>
+    <div *ngIf="employees.length === 0" style="text-align:center; color:#888; margin-top:24px;">
+      No employees yet. Add some!
+    </div>
+  </div>
+</div>

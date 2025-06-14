@@ -7,7 +7,6 @@ const app = express();
 app.use(cors());
 app.use(bodyParser.json());
 
-// Connect to MongoDB (adjust the URI as needed)
 mongoose.connect('mongodb://localhost:27017/employees', {
     useNewUrlParser: true,
     useUnifiedTopology: true,
@@ -15,7 +14,9 @@ mongoose.connect('mongodb://localhost:27017/employees', {
 
 const employeeSchema = new mongoose.Schema({
     name: String,
-    surname: String
+    surname: String,
+    salary: Number,
+    position: String
 });
 
 const Employee = mongoose.model('Employee', employeeSchema);
@@ -33,8 +34,8 @@ app.get('/api/employees', async (req, res) => {
 // Add an employee
 app.post('/api/employees', async (req, res) => {
     try {
-        const { name, surname } = req.body;
-        const employee = new Employee({ name, surname });
+        const { name, surname, salary, position } = req.body;
+        const employee = new Employee({ name, surname, salary, position });
         await employee.save();
         res.json(employee);
     } catch (err) {
