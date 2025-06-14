@@ -7,10 +7,20 @@ const app = express();
 app.use(cors());
 app.use(bodyParser.json());
 
-mongoose.connect('mongodb://localhost:27017/employees', {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-});
+// Use environment variable for MongoDB connection
+const mongoURI = process.env.MONGO_URI || 'mongodb://mongo:27017/employees';
+
+const connectDB = async () => {
+    try {
+        await mongoose.connect(mongoURI);
+        console.log('MongoDB connected');
+    } catch (err) {
+        console.error('MongoDB connection error:', err);
+        process.exit(1);
+    }
+};
+
+connectDB();
 
 const employeeSchema = new mongoose.Schema({
     name: String,
