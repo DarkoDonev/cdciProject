@@ -5,6 +5,9 @@ on:
     branches:
       - master
 
+permissions:
+  contents: write
+
 env:
   IMAGE_NAME_FRONTEND: darkodonev/kiii-frontend
   IMAGE_NAME_BACKEND: darkodonev/kiii-backend
