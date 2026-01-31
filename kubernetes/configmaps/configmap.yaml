@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: app-config
+  namespace: cdci
+data:
+  MONGO_URI: "mongodb://db:27017/backend"
+  BACKEND_API_URL: "http://backend:3000"
