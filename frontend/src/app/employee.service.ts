@@ -12,7 +12,7 @@ export interface Employee {
 
 @Injectable({ providedIn: 'root' })
 export class EmployeeService {
-  private apiUrl = 'http://localhost:3000/api/employees';
+  private apiUrl = '/api/employees';
 
   constructor(private http: HttpClient) {}
 
