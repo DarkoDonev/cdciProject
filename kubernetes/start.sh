@@ -28,10 +28,6 @@ kubectl apply -f deployments/backend-deployment.yaml
 kubectl apply -f deployments/frontend-deployment.yaml
 kubectl apply -f ingress/ingress.yaml
 
-# Wait longer for everything to start
-echo "Waiting for pods to start (this can take 1-2 minutes)..."
-sleep 60
-
 # Check status
 echo "=== Current Status ==="
 kubectl get pods -n cdci
