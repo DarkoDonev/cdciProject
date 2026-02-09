@@ -5,7 +5,7 @@ metadata:
   namespace: cdci
 spec:
   serviceName: db
-  replicas: 100
+  replicas: 1
   selector:
     matchLabels:
       app: db
